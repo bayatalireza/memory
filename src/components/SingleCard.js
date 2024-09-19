@@ -1,14 +1,26 @@
 import "./SingleCard.css";
 
-function SingleCard({card}){
-    return(
-        <div className="card" >
-        <div>
-          <img src={card.src} alt="Card Front" className="front" />
-          <img src="img/cover.png" alt="Card Back" className="back" />
-        </div>
+function SingleCard({ card, handleChoice, disable}) {
+
+  const handleClick = () => {
+    if(!disable){
+      handleChoice(card)
+    }
+  }
+
+  return (
+    <div className="card" >
+      <div>
+        <img src={card.src} alt="Front Card" className="front" />
+        <img
+          src="/img/cover.png"
+          alt="Back Card"
+          className="Back"
+          onClick={handleClick}
+        />
       </div>
-    )
+    </div>
+  );
 }
 
 export default SingleCard;
