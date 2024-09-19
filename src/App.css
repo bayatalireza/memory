@@ -19,8 +19,10 @@ button:hover {
 }
 
 .card-grid{
+  width: 60%;
+  height: 60%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 20px;
-  margin-top: 40px;
+  gap: 10px;
+  margin: 30px auto;
 }

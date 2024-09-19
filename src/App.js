@@ -24,7 +24,7 @@ function App() {
     const shuffledCards = [...cardImages, ...cardImages]
     .sort(() => Math.random() - 0.5)
     .map((card) => ({...card, id: Math.random()})) 
-    console.log(shuffledCards)
+
     setCards(shuffledCards)
   }
 
@@ -32,7 +32,6 @@ function App() {
 
   const handleChoice = (card) => {
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card)   
-    console.log(card);
     
   }
 
@@ -47,12 +46,10 @@ function App() {
             return card
           }
         }))
-        console.log(cards);
         
-        console.log('match');
         resetCard()
       }else{
-        console.log('not match');
+
         setTimeout(()=>resetCard(), 1000)
 
       }
@@ -74,7 +71,7 @@ function App() {
       <button onClick={shuffleCards} >New Game</button>
       <div className="card-grid">
         {cards.map((card) => (
-          <SingleCard card={card} handleChoice={handleChoice} disable={disable} key={card.id} />
+          <SingleCard card={card} handleChoice={handleChoice} flipped={card === choiceOne || card === choiceTwo || card.matched} disable={disable} key={card.id} />
         ))}
       </div>
       <div className="turns">
