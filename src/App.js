@@ -65,6 +65,10 @@ function App() {
     setDisable(false)
   }
 
+  useEffect (() => {
+    shuffleCards()
+  },[])
+
   return (
     <div className="app">
       <h1>Memory Game</h1>
